@@ -14,4 +14,5 @@ class NotasFiscais extends Model
                             'imposto'
 
     ];
+    protected $table = 'NotasFiscais';
 }
