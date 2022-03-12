@@ -9,7 +9,7 @@
 </head>
 <body>
     @section('sidebar')
-    BARRA SUPERIOR
+    Navbar
     @show
     <div class="container">
         @yield('content')

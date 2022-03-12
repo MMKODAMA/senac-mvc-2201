@@ -1,11 +1,30 @@
-@extends('layouts.externo');
-@section('title','minha primeira view')
-@section('sidebar')
+@extends('layouts.externo')
+@section('title', 'Minha primeira view')
 
+@section('sidebar')
     @parent
+    
     <hr>
-    @endsection
-    @section('content')
-    <table class="table">
-        
-    </table>
+@endsection
+@section('content')
+    @if($mostrar)
+    <div class="alert alert-danger" role="alert">
+        ATENÇÃO: lembre dos avisos
+    </div>
+    @else
+    <div></div>
+    @endif
+
+   <table class="table">
+       <tr><td>Quadro de Avisos de {{$nome}}</td><tr>
+           @foreach($avisos as $aviso)
+           <tr><td> Aviso#{{$aviso['id']}}<br>{{$aviso['aviso']}} <tr></td>
+           @endforeach
+       </tr>
+       <?php
+       foreach($avisos as $aviso){
+       echo "<tr><td> Aviso#{{$aviso['id']}}<br>{{$aviso['aviso']}} <tr></td>\n";
+       }
+       ?>
+   </table>
+@endsection
