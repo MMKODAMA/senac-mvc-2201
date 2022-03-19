@@ -14,12 +14,12 @@
            @foreach($produtos as $produto)
 
           
-           @if($produto->id%2)
+           @if($produto->id%2==0)
            <!--<img src="$produtos['img']" > -->
-           <tr><td>Produto#{{$produto['id']}}<br>{{$produto['nome']}} <tr></td>
+           <tr><td>Produto#{{$produto['id']}}<br>{{$produto['nome']}} </td><tr>
 
            @else
-           <h3> ######### </h3>
+           <h3>Produto de ID impar</h3>
            @endif
 
            @endforeach

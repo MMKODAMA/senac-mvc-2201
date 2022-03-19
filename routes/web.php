@@ -25,6 +25,8 @@ Route::get('/avisos', function(){
                                         ['id' =>3, 'aviso'=>'Mussum Ipsum, cacilds vidis litro abertis. Praesent malesuada urna nisi, quis volutpat erat hendrerit non.']
                                         ]]);
 });
+
+
 /*
 Route::get('/produtos',function(){
     return view('produtos',['nome'=>'Makoto',
@@ -37,5 +39,14 @@ Route::get('/produtos',function(){
 Route::get('/produtos2',function(){
     $vetor = ['produtos'=>\App\Models\Produtos::all()];
     return view('produtos',$vetor);
+
+});
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::prefix('clientes')->group(function(){
+
+    Route::get('listar',[App\Http\Controllers\ClientesController::class,'listar']);
 
 });
