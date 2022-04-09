@@ -50,3 +50,9 @@ Route::prefix('clientes')->group(function(){
     Route::get('listar',[App\Http\Controllers\ClientesController::class,'listar']);
 
 });
+
+Route::group(['middleware' => ['auth']], function(){
+    Route::resource('/user',App\Http\Controllers\UserController::class);
+    Route::resource('/roles',App\Http\Controllers\RoleController::class);
+    
+});
