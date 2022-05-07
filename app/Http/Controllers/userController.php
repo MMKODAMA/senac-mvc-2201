@@ -8,6 +8,9 @@ use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
 use App\Models\User;
+
+use Spatie\Permission\Models\Permission;
+
 class userController extends Controller
 {
     /**
@@ -17,9 +20,21 @@ class userController extends Controller
      */
     public function index(Request $request)
     {
+    /*
+        $user = User::create(['name'=>'makoto',
+                                'email'=>'email@gemail.com',
+                                'password'=> bcrypt('12345678')]);
+        $role = Role::create(['name'=>'adm']);
+        
+        $permissions = Permission::pluck('id','id')->all();
+        $role->syncPermissions($permissions);
+        $user->assignRole([$role->id]);
+        */
+
         $data = User::orderBy('id','DESC')->paginate(5);
 
         return view('users.index',compact('data'))->with('i',($request->input('page',1)-1)*5);
+        
     }
 
     /**

@@ -53,7 +53,7 @@ class RoleController extends Controller
 
         $role = Role::create(['name'=>$request->input('name')]);
 
-        $role->syncPermission($request->input('permission'));
+        $role->syncPermissions($request->input('permission'));
         return redirect()->route('roles.index')->with('success','Perfil Criado com Sucesso');
     }
 
@@ -67,9 +67,9 @@ class RoleController extends Controller
     {
         $role = Role::find($id);
         $rolePermissions = Permission::join('role_has_permissions',
-                                            'role_ha_permissions.permission_id',
+                                            'role_has_permissions.permission_id',
                                             '=',
-                                            'permission_id')->where('role_hasPermission.role_id',$id->get());
+                                            'permission_id')->where('role_has_permissions.role_id',$id)->get();
 
         return view('roles.show',compact('role','rolePermissions'));
 
@@ -92,7 +92,7 @@ class RoleController extends Controller
                                 ->pluck('role_has_permissions.permission_id')
                                 ->all();
 
-        return view('roles.edit',compact('role','permission','role_permissions'));
+        return view('roles.edit',compact('role','permission','rolePermissions'));
     }
 
     /**
@@ -104,7 +104,7 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this.validate($request,['name'=>'required',
+        $this->validate($request,['name'=>'required',
                                     'permission'=>'required']);
         $role = Role::find($id);
         $role->name= $request->input('name');

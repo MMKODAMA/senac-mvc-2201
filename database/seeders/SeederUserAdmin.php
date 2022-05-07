@@ -17,9 +17,9 @@ class SeederUserAdmin extends Seeder
      */
     public function run()
     {
-        $user = User::create(['name'=>'Matheus Makoto',
-                                'email'=>'matheus.mkodama@email3.com',
-                                'password'=> bcrypt('SenhaSecreta')]);
+        $user = User::create(['name'=>'makoto',
+                                'email'=>'email@email.com',
+                                'password'=> bcrypt('12345678')]);
         $role = Role::create(['name'=>'Admin']);
         $permissions = Permission::pluck('id','id')->all();
         $role->syncPermissions($permissions);
