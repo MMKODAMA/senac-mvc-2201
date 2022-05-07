@@ -13,6 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
+        /*
         Schema::create('Vendas', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('cliente_id')->unsigned();
@@ -21,6 +22,8 @@ return new class extends Migration
             $table->date('data_da_venda');
             $table->timestamps();
         });
+        */
+        return true;
     }
 
     /**

@@ -12,7 +12,7 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    {
+    { /*
         Schema::create('NotasFiscais', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('venda_id')->unsigned;
@@ -20,6 +20,8 @@ return new class extends Migration
             $table->double('imposto',12,2);
             $table->timestamps();
         });
+        */
+        return true;
     }
 
     /**

@@ -7,7 +7,7 @@ use Illuminate\Support\Arr;
 use Spatie\Permission\Models\Role;
 use DB;
 use Hash;
-
+use App\Models\User;
 class userController extends Controller
 {
     /**
@@ -15,7 +15,7 @@ class userController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $data = User::orderBy('id','DESC')->paginate(5);
 

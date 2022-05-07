@@ -52,7 +52,7 @@ Route::prefix('clientes')->group(function(){
 });
 
 Route::group(['middleware' => ['auth']], function(){
-    Route::resource('/user',App\Http\Controllers\UserController::class);
+    Route::resource('/users',App\Http\Controllers\UserController::class);
     Route::resource('/roles',App\Http\Controllers\RoleController::class);
     
 });

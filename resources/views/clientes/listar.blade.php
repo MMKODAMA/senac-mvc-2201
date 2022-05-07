@@ -1,30 +1,25 @@
 @extends('layouts.externo')
-@section('title', 'Minha primeira view')
-
+@section('title', 'Clientes')
 @section('sidebar')
-    @parent
-    
     <hr>
 @endsection
 @section('content')
-
    <table class="table">
-       <thead>
-           <tr>
-               <td>ID</td>
-               <td>Nome</td>
-               <td>endereco</td>
-               <td>telefone</td>
-           </tr>
-       </thead>
-           @foreach($clientes as $cliente)
-           <tr>
-               <td>{{$cliente['id']}}</td>
-               <td> {{$cliente['nome']}} </td>
-               <td>  {{$cliente['endereco']}} </td>
-               <td>  {{$cliente['telefone']}} </td>
-            <tr>
-           @endforeach
-       </tr>
+   <tr>
+       <td>ID</td>
+       <td>Nome</td>
+       <td>Endereço</td>
+       <td>Telefone</td>
+       <td>E-Mail</td>
+   </tr>
+   @foreach($clientes as $cliente)
+   <tr>
+       <td>{{$cliente->id}}</td>
+       <td>{{$cliente->nome}}</td>
+       <td>{{$cliente->endereco}}</td>
+       <td>{{$cliente->telefone}}</td>
+       <td>{{$cliente->email}}</td>
+   </tr>
+   @endforeach
    </table>
 @endsection
