@@ -12,14 +12,14 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    { /*
+    {
         Schema::create('Produtos', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
             $table->string('descricao');
             $table->double('preco',12,2);
             $table->timestamps();
-        }); */
+        });
         return true;
     }
 

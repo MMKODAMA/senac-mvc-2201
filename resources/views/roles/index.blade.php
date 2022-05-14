@@ -31,8 +31,8 @@
 
 <table class="table table-bordered">
   <tr>
-     <th>No</th>
-     <th>Name</th>
+     <th>ID</th>
+     <th>Nome</th>
      <th width="280px">Action</th>
   </tr>
 
@@ -44,11 +44,12 @@
         <td>
             <a class="btn btn-info" href="{{ route('roles.show',$role->id) }}">Mostrar</a>
 
-            @can('role-edit')
+
+
 
                 <a class="btn btn-primary" href="{{ route('roles.edit',$role->id) }}">Editar</a>
 
-            @endcan
+
 
             @can('role-delete')
 

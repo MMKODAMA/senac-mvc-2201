@@ -20,6 +20,7 @@ class userController extends Controller
         $data = User::orderBy('id','DESC')->paginate(5);
 
         return view('users.index',compact('data'))->with('i',($request->input('page',1)-1)*5);
+
     }
 
     /**
@@ -49,7 +50,7 @@ class userController extends Controller
         $input = $request->all();
 
         $input['password']=Hash::make($input['password']);
-        
+
         $user = User::create($input);
 
         $user->assignRole($request->input('roles'));
@@ -110,7 +111,7 @@ class userController extends Controller
         DB::table('model_has_roles')->where('model_id',$id)->delete();
         $user->assignRole($request->input('roles'));
         return redirect()->route('users.index')->with('success','Usuario atualizado com sucesso');
-    
+
 
     }
 
@@ -124,6 +125,6 @@ class userController extends Controller
     {
         User::find($id)->delete();
         return redirect()->route('users.index')->with('success','Usuario deletado com sucesso');
-    
+
     }
 }

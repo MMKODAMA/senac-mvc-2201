@@ -13,15 +13,15 @@ return new class extends Migration
      */
     public function up()
     {
-        /*
+
         Schema::create('Vendedores', function (Blueprint $table) {
             $table->id();
             $table->string('nome');
             $table->timestamps();
 
-            
+
         });
-        */
+
         return true;
     }
 

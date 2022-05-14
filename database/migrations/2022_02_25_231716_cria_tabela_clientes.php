@@ -13,7 +13,7 @@ return new class extends Migration
      */
     public function up()
     {
-        /*
+
         Schema::create('Clientes', function (Blueprint $table) {
             $table->id();
             $table->timestamp('created_at')->useCurrent();
@@ -25,7 +25,7 @@ return new class extends Migration
             $table->charset ='utf8';
             $table->collation ='utf8_unicode_ci';
         });
-        */
+
         return true;
     }
 

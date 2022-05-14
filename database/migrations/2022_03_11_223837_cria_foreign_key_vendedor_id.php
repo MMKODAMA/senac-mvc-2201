@@ -13,11 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
+
         Schema::table('Vendas', function (Blueprint $table) {
             $table->foreign('vendedor_id')->references('id')
             ->on('Vendedores')->onDelete('cascade');
 
         });
+
+        return true;
     }
 
     /**
