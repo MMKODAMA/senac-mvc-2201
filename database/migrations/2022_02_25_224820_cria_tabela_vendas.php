@@ -12,15 +12,15 @@ return new class extends Migration
      * @return void
      */
     public function up()
-    { /*
-        Schema::create('Produtos', function (Blueprint $table) {
-            $table->id();
-            $table->string('nome');
-            $table->string('descricao');
-            $table->double('preco',12,2);
+    {
+        Schema::create('Vendas', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->bigInteger('cliente_id')->unsigned();
+            $table->foreign('cliente_id')->references('id')->on('Clientes')->onDelete('cascade');
+            $table->bigInteger('vendedor_id')->unsigned();
+            $table->date('data_da_venda');
             $table->timestamps();
-        }); */
-        return true;
+        });
     }
 
     /**
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Produtos');
+        Schema::dropIfExists('Vendas');
     }
 };

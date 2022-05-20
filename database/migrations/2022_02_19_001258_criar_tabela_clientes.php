@@ -13,20 +13,16 @@ return new class extends Migration
      */
     public function up()
     {
-        /*
         Schema::create('Clientes', function (Blueprint $table) {
             $table->id();
-            $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('updated_at')->useCurrent();
+            $table->timestamps();
             $table->string('nome');
             $table->string('endereco');
             $table->string('email');
             $table->bigInteger('telefone');
-            $table->charset ='utf8';
-            $table->collation ='utf8_unicode_ci';
+            $table->charset = 'utf8';
+            $table->collation = 'utf8_unicode_ci';
         });
-        */
-        return true;
     }
 
     /**

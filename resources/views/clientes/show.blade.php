@@ -5,47 +5,44 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2> Dados do Usuário</h2>
+            <h2> Detalhes do Cliente</h2>
         </div>
-
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('users.index') }}"> Voltar</a>
+            <a class="btn btn-primary" href="{{ route('clients.index') }}"> Voltar</a>
         </div>
     </div>
 </div>
-<br>
+
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Nome:</strong>
 
-            {{ $user->name }}
+            {{ $cliente->nome }}
 
         </div>
     </div>
-
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Email:</strong>
+            <strong>E-mail:</strong>
 
-            {{ $user->email }}
+            {{ $cliente->email }}
 
         </div>
     </div>
-
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
-            <strong>Perfil:</strong>
+            <strong>Endereço:</strong>
 
-            @if(!empty($user->getRoleNames()))
+            {{ $cliente->endereco }}
 
-                @foreach($user->getRoleNames() as $v)
+        </div>
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-12">
+        <div class="form-group">
+            <strong>Telefone:</strong>
 
-                    <label >{{ $v }}</label>
-
-                @endforeach
-
-            @endif
+            {{ $cliente->telefone }}
 
         </div>
     </div>

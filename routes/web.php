@@ -17,42 +17,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/avisos', function(){
-    return view('avisos',[  'nome'=> 'Makoto',
-                            'mostrar'=>true,
-                            'avisos' => [['id' =>1, 'aviso'=>'Mussum Ipsum, cacilds vidis litro abertis. Praesent malesuada urna nisi, quis volutpat erat hendrerit non.'],
-                                        ['id' =>2, 'aviso'=>'Mussum Ipsum, cacilds vidis litro abertis. Praesent malesuada urna nisi, quis volutpat erat hendrerit non.'],
-                                        ['id' =>3, 'aviso'=>'Mussum Ipsum, cacilds vidis litro abertis. Praesent malesuada urna nisi, quis volutpat erat hendrerit non.']
-                                        ]]);
+Route::get('/avisos', function (){
+    return view('avisos',[  'nome' => 'Albertin', 
+                            'mostrar' => true,
+                            'avisos' => [   ['id' => 1, 'aviso' => 'Mussum Ipsum, cacilds vidis litro abertis'],
+                                            ['id' => 2, 'aviso' => 'Em pé sem cair, deitado sem dormir'],
+                                            ['id' => 3, 'aviso' => 'A ordem dos tratores não altera o pão duris']]]);
 });
 
-
-/*
-Route::get('/produtos',function(){
-    return view('produtos',['nome'=>'Makoto',
-                            'mostrar'=>true,
-                            'produtos'=>[['id'=>1,'img'=>'x.jpg','nome'=>'Monster'],
-                                        ['id'=>2,'img'=>'x.jpg','nome'=>'redbull']
-                                        ]]);
-});
-*/
-Route::get('/produtos2',function(){
-    $vetor = ['produtos'=>\App\Models\Produtos::all()];
-    return view('produtos',$vetor);
-
-});
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('clientes')->group(function(){
-
-    Route::get('listar',[App\Http\Controllers\ClientesController::class,'listar']);
-
-});
-
 Route::group(['middleware' => ['auth']], function(){
-    Route::resource('/users',App\Http\Controllers\UserController::class);
-    Route::resource('/roles',App\Http\Controllers\RoleController::class);
-    
+    Route::resource('/clients', App\Http\Controllers\ClientesController::class);
+    Route::resource('/users', App\Http\Controllers\UserController::class);
+    Route::resource('/roles', App\Http\Controllers\RoleController::class);    
 });
+

@@ -23,8 +23,9 @@ class SeederTablePermissions extends Seeder
                         'cliente-edit',
                         'cliente-create',
                         'cliente-delete'];
+
         foreach($permissions as $permission){
-            Permission::create(['name'=>$permission]);
+            Permission::create(['name' => $permission]);
         }
     }
 }

@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::table('Vendas', function (Blueprint $table) {
-            $table->foreign('vendedor_id')->references('id')
-            ->on('Vendedores')->onDelete('cascade');
-
+        Schema::create('Vendedores', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->timestamps();
         });
     }
 
@@ -27,8 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('Vendas', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('Vendedores');
     }
 };

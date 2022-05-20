@@ -1,8 +1,8 @@
-@extends('layouts.app') 
+@extends('layouts.app')
 
 @section('content')
 
-<div class="row"> 
+<div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
             <h2>Usuários</h2>
@@ -42,10 +42,11 @@
     <td>{{ $user->email }}</td>
     <td>
 
-      @if(!empty($user->getRoleNames())) 
+      @if(!empty($user->getRoleNames()))
+
         @foreach($user->getRoleNames() as $v)
 
-           <label>{{ $v }}</label>
+           <label >{{ $v }}</label>
 
         @endforeach
 
