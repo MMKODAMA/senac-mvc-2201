@@ -14,7 +14,7 @@ class VendedoresController extends Controller
      */
     public function index()
     {
-        
+
         return Vendedores::all();
 
     }
@@ -84,7 +84,7 @@ class VendedoresController extends Controller
             $atualizacao = json_decode($json, JSON_OBJECT_AS_ARRAY);
             $vendedor->nome=$atualizacao['nome'];
             $ret = $vendedor->update() ? [$id=>'Atualizado'] : [$id=>'ERRO'];
-            
+
         }else{
            $ret=[$id=>'nao existe'];
         }
@@ -106,5 +106,21 @@ class VendedoresController extends Controller
             $ret = [$id=>'nao existe'];
         }
         return json_encode($ret);
+    }
+    public function checkVendedor(int $id):bool{
+
+        $vendedores = [1=>'paulo',
+                        2=>'Carla',
+                        3=>'Joao',
+                        4=>'Fernanda'];
+
+        return array_key_exists($id,$vendedores);
+    }
+    public function getVendedor(int $id):string{
+        $vendedores = [1=>'paulo',
+                        2=>'Carla',
+                        3=>'Joao',
+                        4=>'Fernanda'];
+        return $vendedores[$id];
     }
 }

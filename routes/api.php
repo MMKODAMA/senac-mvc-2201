@@ -24,6 +24,7 @@ Route::prefix('v1')->group(static function(){
     Route::delete('/vendedores/{id}',[App\Http\Controllers\VendedoresController::class,'destroy']);
     Route::get('/vendedores/{id}',[App\Http\Controllers\VendedoresController::class,'show']);
     Route::put('/vendedores/{id}',[App\Http\Controllers\VendedoresController::class,'update']);
-    
+
 
 });
+Route::post('login',[App\Http\Controllers\APIController::class,'login']);
